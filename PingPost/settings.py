@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+2aqo(r@2$e5!6j+p5jwt_u*1nz7+^cx+2b90)^c^o%-5cbq(0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["pingpost-p4p2.onrender.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
