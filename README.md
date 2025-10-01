@@ -3,7 +3,7 @@ PingPost is a mini social media application built with Django where users can re
 
 It’s a beginner-friendly project that demonstrates user authentication, CRUD operations, and Django templates in action.
 
-🚀 Features
+## 🚀 Features
 
 🔐 User Authentication – Register, login, and logout securely.
 
@@ -19,7 +19,7 @@ It’s a beginner-friendly project that demonstrates user authentication, CRUD o
 
 📱 Responsive UI – Styled with Bootstrap for a clean, mobile-friendly interface.
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 Backend: Django (Python)
 
