@@ -25,7 +25,7 @@ Backend: Django (Python)
 
 Frontend: Django Templates + Bootstrap
 
-Database: SQLite (default, can be swapped with PostgreSQL/MySQL)
+Database: SQLite
 
 Auth: Django built-in authentication system
 
