@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ping Post - Tweets
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">Recent Posts</h1>
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a class="btn btn-primary" href="{% url 'tweet_create' %}">Create a Post</a>
+        <p class="text-muted">Logged in as <strong>{{ user.username }}</strong></p>
+    </div>
+
+    {% if tweets %}
+        <div class="container">
+            <div class="row">
+                {% for tweet in tweets %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            {% if tweet.photo %}
+                                <img src="{{ tweet.photo.url }}" class="card-img-top" alt="{{ tweet.user.username }}"/>
+                            {% else %}
+                                <img src="https://via.placeholder.com/300x200.png?text=No+Image" class="card-img-top" alt="No Image">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ tweet.user.username }}</h5>
+                                <p class="card-text">{{ tweet.text }}</p>
+                                <p class="text-muted small mb-2">Posted on {{ tweet.created_at|date:"M d, Y H:i" }}</p>
+                                {% if tweet.user == user %}
+                                    <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger btn-sm">Delete</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p class="text-center text-muted">No posts yet. Be the first to <a href="{% url 'tweet_create' %}">create one</a>!</p>
+    {% endif %}
+{% endblock %}

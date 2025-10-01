@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {% if form.instance.pk %} Edit Tweet {% else %} Create Tweet {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">
+        {% if form.instance.pk %} Edit Your Post {% else %} Create a New Post {% endif %}
+    </h1>
+
+    <form method="post" enctype="multipart/form-data" class="form mt-3">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label for="id_text">Text</label>
+            {{ form.text }}
+        </div>
+        <div class="form-group mb-3">
+            <label for="id_photo">Photo</label>
+            {{ form.photo }}
+        </div>
+
+        {% if form.instance.photo %}
+            <div class="mt-3">
+                <p>Current photo:</p>
+                <img src="{{ form.instance.photo.url }}" alt="Post image" style="max-width: 200px;"/>
+            </div>
+        {% endif %}
+
+        <button class="btn btn-success mt-3" type='submit'>Save</button>
+        <a href="{% url 'tweet_list' %}" class="btn btn-secondary mt-3">Cancel</a>
+    </form>
+{% endblock %}
